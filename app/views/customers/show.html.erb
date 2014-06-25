@@ -9,6 +9,15 @@
   <strong>Discount:</strong>
   <%= @customer.discount %>
 </p>
+
+<tbody>
+	<tr>
+ <td> <strong>Orders:</strong></td>
+  <%= @customer.orders.each do |order| %>
+  	<td><%= order.id %></td>
+  <% end %>
+</tr>
+</tbody>
 <%= link_to 'New Order', new_order_path(customer: @customer) %>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
