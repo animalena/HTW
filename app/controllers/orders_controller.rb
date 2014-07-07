@@ -75,6 +75,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:customer_id, :placed_on, :status)
+      params.require(:order).permit(:customer_id, :placed_on, :price, :status)
     end
 end

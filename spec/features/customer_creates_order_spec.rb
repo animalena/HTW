@@ -13,6 +13,7 @@ describe "customer page", :type => :feature do
     visit "/customers/#{@customer.id}"
     click_link 'New Order'
     fill_in 'Status', with: :new
+    fill_in 'Price', with: 10.0
     click_button 'Create Order'
     order = Order.last
     expect(order.customer).to eq @customer

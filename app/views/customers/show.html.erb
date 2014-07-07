@@ -1,23 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
+	<strong>Name:</strong>
+	<%= @customer.name %>
 </p>
 
 <p>
-  <strong>Discount:</strong>
-  <%= @customer.discount %>
+	<strong>Discount:</strong>
+	<%= @customer.discount %>
 </p>
 
-<tbody>
-	<tr>
- <td> <strong>Orders:</strong></td>
-  <%= @customer.orders.each do |order| %>
-  	<td><%= order.id %></td>
-  <% end %>
-</tr>
-</tbody>
+<p>
+	<strong>Orders:</strong>
+</p>
+<ul>
+	<% @orders.each do |order| %>
+	<li>
+		Order id: <%= order.id %>, 
+		Placed on: <%= order.placed_on %>, 
+		Price: <%= order.price %>,
+		Status: <%= order.status %>
+	</li>
+	<% end %>
+	<li>
+		Total price: <%= @total_price %>
+	</li>
+</ul>
+
 <%= link_to 'New Order', new_order_path(customer: @customer) %>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
