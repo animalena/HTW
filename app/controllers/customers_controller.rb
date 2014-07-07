@@ -20,7 +20,16 @@ class CustomersController < ApplicationController
   end
 
   # GET /customers/1/edit
-  def edit
+    def show
+    @orders = Customer.where(name: @customer.name).first.orders
+    @allOrders = []
+    @allTotal = ''
+    total = 0
+    @orders.each do |curr|  
+      @allOrders << curr.placed_on.to_s + ' | ' + curr.price.to_s + '€ | ' + curr.status
+      total = total + curr.price
+    end
+    @allTotal = 'Total: ' + total.to_s + '€'
   end
 
   # POST /customers
