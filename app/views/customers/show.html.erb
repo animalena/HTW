@@ -16,9 +16,9 @@
 <ul>
 	<% @orders.each do |order| %>
 	<li>
-		Order id: <%= order.id %>, 
-		Placed on: <%= order.placed_on %>, 
-		Status: <%= order.status %>, 
+		Order id: <%= order.id %>, <br>
+		Placed on: <%= order.placed_on %>, <br>
+		Status: <%= order.status %>, <br>
 		Price: <%= order.price %>
 	</li>
 	<% end %>
