@@ -11,21 +11,12 @@
 </p>
 
 <p>
-	<strong>Orders:</strong>
+  <strong>Order:</strong><br/>
+  <% @allOrders.each do |t| %>
+  <%= t %><br/>
+  <% end %>	
+  <strong><%= @allTotal %></strong>
 </p>
-<ul>
-	<% @orders.each do |order| %>
-	<li>
-		Order id: <%= order.id %>, 
-		Placed on: <%= order.placed_on %>, 
-		Price: <%= order.price %>,
-		Status: <%= order.status %>
-	</li>
-	<% end %>
-	<li>
-		Total price: <%= @total_price %>
-	</li>
-</ul>
 
 <%= link_to 'New Order', new_order_path(customer: @customer) %>
 
