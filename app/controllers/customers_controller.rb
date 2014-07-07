@@ -10,6 +10,8 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @orders = Customer.where(name: @customer.name).first.orders
+
     @orders = @customer.orders
     @total_price = @customer.orders.sum(:price)
   end
