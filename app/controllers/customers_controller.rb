@@ -10,8 +10,8 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
-    @orders = @orders.orders
-    @total_price = customer.orders.sum(:price)
+    @orders = @customer.orders
+    @total_price = @customer.orders.sum(:price)
   end
 
   # GET /customers/new
@@ -20,16 +20,7 @@ class CustomersController < ApplicationController
   end
 
   # GET /customers/1/edit
-    def show
-    @orders = Customer.where(name: @customer.name).first.orders
-    @allOrders = []
-    @allTotal = ''
-    total = 0
-    @orders.each do |curr|  
-      @allOrders << curr.placed_on.to_s + ' | ' + curr.price.to_s + '€ | ' + curr.status
-      total = total + curr.price
-    end
-    @allTotal = 'Total: ' + total.to_s + '€'
+  def edit
   end
 
   # POST /customers
